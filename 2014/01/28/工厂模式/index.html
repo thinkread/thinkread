@@ -6,15 +6,59 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Think Read</title>
+  <title>工厂模式 | Think Read</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/03/28/hello-world/index.html">
+  <meta name="description" content="工厂模式工厂模式就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建.
+ 
+举例如下：（我们举一个发送邮件和短信的例子）
+首先，创建二者的共同接口：
+
+public interface Sender {  
+public void Send();  
+}  
+
+创建实现类
+
+public class MailSender implements Sender {  
+
+@Override">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂模式">
+<meta property="og:url" content="http://yoursite.com/2014/01/28/工厂模式/index.html">
 <meta property="og:site_name" content="Think Read">
-<meta property="og:updated_time" content="2017-03-29T02:12:33.864Z">
+<meta property="og:description" content="工厂模式工厂模式就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建.
+ 
+举例如下：（我们举一个发送邮件和短信的例子）
+首先，创建二者的共同接口：
+
+public interface Sender {  
+public void Send();  
+}  
+
+创建实现类
+
+public class MailSender implements Sender {  
+
+@Override">
+<meta property="og:image" content="http://yoursite.com/2014/01/28/工厂模式/普通工厂模式.png">
+<meta property="og:updated_time" content="2017-03-29T03:35:00.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
+<meta name="twitter:title" content="工厂模式">
+<meta name="twitter:description" content="工厂模式工厂模式就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建.
+ 
+举例如下：（我们举一个发送邮件和短信的例子）
+首先，创建二者的共同接口：
+
+public interface Sender {  
+public void Send();  
+}  
+
+创建实现类
+
+public class MailSender implements Sender {  
+
+@Override">
+<meta name="twitter:image" content="http://yoursite.com/2014/01/28/工厂模式/普通工厂模式.png">
   
     <link rel="alternative" href="/atom.xml" title="Think Read" type="application/atom+xml">
   
@@ -138,27 +182,105 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-工厂模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      工厂模式
     </h1>
   
 
         
-        <a href="/2017/03/28/hello-world/" class="archive-article-date">
-  	<time datetime="2017-03-28T07:09:55.011Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
+        <a href="/2014/01/28/工厂模式/" class="archive-article-date">
+  	<time datetime="2014-01-28T02:04:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-01-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><h2 id="工厂模式-1"><a href="#工厂模式-1" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建.</p>
+<p> <img src="/2014/01/28/工厂模式/普通工厂模式.png" alt="普通工厂模式"></p>
+<p>举例如下：（我们举一个发送邮件和短信的例子）</p>
+<p>首先，创建二者的共同接口：</p>
+<ol>
+<li>public interface Sender {  </li>
+<li>public void Send();  </li>
+<li>}  </li>
+</ol>
+<p>创建实现类</p>
+<ol>
+<li><p>public class MailSender implements Sender {  </p>
+</li>
+<li><p>@Override  </p>
+</li>
+<li><p>public void Send() {  </p>
+</li>
+<li><p>System.out.println(“this is mailsender!”);  </p>
+</li>
+<li><p>}  </p>
+</li>
+<li><p>}  </p>
+<p>​</p>
+</li>
+</ol>
+<ol>
+<li><p>public class SmsSender implements Sender {  </p>
+</li>
+<li></li>
+<li><p>@Override  </p>
+</li>
+<li><p>public void Send() {  </p>
+</li>
+<li><p>System.out.println(“this is sms sender!”);  </p>
+</li>
+<li><p>}  </p>
+</li>
+<li><p>}  </p>
+<p>最后，建工厂类：</p>
+</li>
+<li><p>public class SendFactory {  </p>
+</li>
+<li></li>
+<li><p>public Sender produce(String type) {  </p>
+</li>
+<li><p>if (“mail”.equals(type)) {  </p>
+</li>
+<li><p>return new MailSender();  </p>
+</li>
+<li><p>} else if (“sms”.equals(type)) {  </p>
+</li>
+<li><p>return new SmsSender();  </p>
+</li>
+<li><p>} else {  </p>
+</li>
+<li><p>System.out.println(“请输入正确的类型!”);  </p>
+</li>
+<li><p>return null;  </p>
+</li>
+<li><p>}  </p>
+</li>
+<li><p>}  </p>
+</li>
+<li><p>}  </p>
+<p>测试</p>
+</li>
+</ol>
+<ol>
+<li>public class FactoryTest {  </li>
+<li></li>
+<li>public static void main(String[] args) {  </li>
+<li>SendFactory factory = new SendFactory();  </li>
+<li>Sender sender = factory.produce(“sms”);  </li>
+<li>sender.Send();  </li>
+<li>}  </li>
+<li>}  </li>
+</ol>
+<p>输出：this is sms sender!</p>
+
       
 
       
@@ -192,7 +314,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">/随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">/设计模式</a>
         		</li>
       		
 		</ul>
@@ -248,7 +370,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/28/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2014/01/28/工厂模式/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,9 +384,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2014/01/29/设计模式六大原则/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式六大原则
+        
+      </div>
+    </a>
   
-    <a href="/2014/01/29/设计模式六大原则/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式六大原则</div>
+  
+    <a href="/2014/01/28/设计模式分类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式分类</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,10 +497,6 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">/随笔</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">/设计模式</a>
